@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços de Informática</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <h1>Serviços de Informática</h1>
+            <p>Qualidade, agilidade e profissionalismo em cada serviço</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção de Categorias -->
+        <section class="categories">
+            <h2 class="section-title">Categorias de Serviços</h2>
+            <div class="category-grid">
+                <div class="category" data-category="atendimento-avulso">
+                    <img src="https://i.postimg.cc/wvrdRrkB/mini-controle-de-internet.jpg" alt="Atendimento Avulso">
+                    <h3>Atendimento Avulso</h3>
+                </div>
+                <div class="category" data-category="formatacao">
+                    <img src="https://i.postimg.cc/R0RShG83/mini-manutencao-hardware.jpg" alt="Formatação">
+                    <h3>Formatação</h3>
+                </div>
+                <div class="category" data-category="redes">
+                    <img src="https://i.postimg.cc/Dw1yk7PP/mini-manutencao-de-rede.jpg" alt="Redes">
+                    <h3>Redes</h3>
+                </div>
+                <div class="category" data-category="suporte">
+                    <img src="https://i.postimg.cc/WbXwmPkS/mini-suporte-em-informatica.jpg" alt="Suporte Técnico">
+                    <h3>Suporte Técnico</h3>
+                </div>
+                <div class="category" data-category="consultoria">
+                    <img src="https://i.postimg.cc/L40sjCsL/mini-consultoria-em-informatica.jpg" alt="Consultoria">
+                    <h3>Consultoria</h3>
+                </div>
+                <div class="category" data-category="backup">
+                    <img src="https://i.postimg.cc/Zqgf8zXX/mini-backup-online.jpg" alt="Backup">
+                    <h3>Backup</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Serviços -->
+        <section id="services">
+            <h2 id="service-title">Selecione uma Categoria</h2>
+            <p id="service-description">Clique em uma categoria para ver os serviços disponíveis.</p>
+            <ul id="service-list"></ul>
+
+            <!-- Carrinho de Compras -->
+           <div id="cart">
+    <h3>Carrinho</h3>
+    <ul id="cart-items">
+        <!-- Itens do carrinho aparecerão aqui -->
+    </ul>
+    <p><strong>Total: R$ <span id="cart-total">0.00</span></strong></p>
+    <a id="whatsapp-button" href="#" target="_blank" style="display: none;" class="send-whatsapp">
+        Enviar pelo WhatsApp
+    </a>
+</div>
+
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Serviços de Informática - Gunnar Oliveira. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
