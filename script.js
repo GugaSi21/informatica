@@ -31,7 +31,8 @@ const services = {
 document.querySelectorAll(".category").forEach(category => {
     category.addEventListener("click", function () {
         const categoryName = this.getAttribute("data-category");
-        displayServices(categoryName);
+        displayServices(categoryName);  // Exibe os serviços
+        scrollToServices(); // Move a tela para os serviços
     });
 });
 
@@ -73,6 +74,12 @@ function displayServices(category) {
     });
 }
 
+// Função para rolar para os serviços automaticamente após selecionar a categoria
+function scrollToServices() {
+    const serviceSection = document.getElementById("services");
+    serviceSection.scrollIntoView({ behavior: "smooth" });
+}
+
 // Adiciona serviços ao carrinho
 function addToCart(serviceName, servicePrice) {
     const cartItems = document.getElementById("cart-items");
@@ -99,9 +106,13 @@ function addToCart(serviceName, servicePrice) {
         updateCartTotal(-priceToRemove);
     });
 
-    // Exibe o botão do WhatsApp se houver itens
+    // Exibe o carrinho
+    document.getElementById("cart").style.display = "block";
+
+    // Exibe o botão de WhatsApp se houver itens no carrinho
     if (cartItems.children.length > 0) {
-        whatsappButton.style.display = "inline-block";
+        whatsappButton.style.display = "block";
+        whatsappButton.href = `https://wa.me/5541999999999?text=Gostaria de saber mais sobre os serviços: ${getCartSummary()}`;
     }
 }
 
@@ -111,79 +122,22 @@ function updateCartTotal(amount) {
     let currentTotal = parseFloat(cartTotal.textContent);
     currentTotal += amount;
     cartTotal.textContent = currentTotal.toFixed(2);
-
-    // Esconde o carrinho se vazio
-    const cart = document.getElementById("cart");
-    const cartItems = document.getElementById("cart-items");
-    const whatsappButton = document.getElementById("whatsapp-button");
-
-    if (currentTotal <= 0) {
-        cart.style.display = "none";
-        whatsappButton.style.display = "none";
-    } else {
-        cart.style.display = "block";
-    }
 }
 
-// Atualiza o link do botão WhatsApp com uma mensagem formatada
-document.getElementById("whatsapp-button").addEventListener("click", function () {
-    const cartItems = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
-    let message = "Olá! Gostaria de realizar um pedido com os itens abaixo:\n\n";
+// Resumo do carrinho para o WhatsApp
+function getCartSummary() {
+    const items = document.querySelectorAll("#cart-items li");
+    return Array.from(items).map(item => item.textContent).join(", ");
+}
 
-    let total = 0;
-
-    // Adiciona itens ao WhatsApp com uma formatação mais organizada
-    cartItems.querySelectorAll("li").forEach(item => {
-        const itemName = item.textContent.split(" - ")[0].trim();
-        const itemPrice = parseFloat(item.textContent.split(" - R$ ")[1].split(" ")[0]);
-        total += itemPrice;
-
-        // Monta a mensagem do item formatada com quantidade e subtotal, usando negrito para destacar
-        message += `*${itemName}*\n  Quantidade: *1*\n  Preço unitário: *R$ ${itemPrice.toFixed(2)}*\n  Subtotal: *R$ ${itemPrice.toFixed(2)}*\n\n`;
-    });
-
-    // Adiciona o total do pedido com destaque
-    message += `*Total do Pedido: R$ ${total.toFixed(2)}*\n\nPor favor, confirme o pedido. Obrigado!`;
-
-    // Codifica a mensagem para o link do WhatsApp
-    this.href = `https://wa.me/5569993073838?text=${encodeURIComponent(message)}`;
+// Abrir o carrinho
+const openCartButton = document.getElementById("open-cart");
+openCartButton.addEventListener("click", function() {
+    document.getElementById("cart").style.display = "block";
 });
 
-
-// Chamando a função para garantir que funcione
-showCart();
-
-// Função para adicionar serviços ao carrinho
-function addToCart(serviceName, servicePrice) {
-    const cartItems = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
-    const whatsappButton = document.getElementById("whatsapp-button");
-
-    // Cria o item no carrinho
-    const cartItem = document.createElement("li");
-    cartItem.style.wordWrap = "break-word"; // Ajuste para evitar quebras longas
-    cartItem.innerHTML = `
-        ${serviceName} - R$ ${servicePrice.toFixed(2)}
-        <button class="remove-from-cart" data-price="${servicePrice}">
-            Remover
-        </button>
-    `;
-    cartItems.appendChild(cartItem);
-
-    // Atualiza o total
-    updateCartTotal(servicePrice);
-
-    // Adiciona evento para remover do carrinho
-    cartItem.querySelector(".remove-from-cart").addEventListener("click", function () {
-        const priceToRemove = parseFloat(this.getAttribute("data-price"));
-        cartItem.remove();
-        updateCartTotal(-priceToRemove);
-    });
-
-    // Mostra o botão do WhatsApp e garante que o carrinho está visível
-    if (cartItems.children.length > 0) {
-        whatsappButton.style.display = "inline-block";
-        showCart();
-    }
-}
+// Fechar o carrinho
+const closeCartButton = document.getElementById("close-cart");
+closeCartButton.addEventListener("click", function() {
+    document.getElementById("cart").style.display = "none";
+});
