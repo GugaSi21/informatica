@@ -4,62 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serviços de Informática</title>
+      <!-- Certifique-se de que o arquivo CSS esteja no lugar certo -->
+
+    <!-- Link para o Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+	<!-- Inclua a biblioteca particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<!-- Elemento para o fundo de partículas -->
+<div id="particles-js"></div>
+
 </head>
 <body>
-    <header>
-        <div class="hero">
-            <h1>Serviços de Informática</h1>
-            <p>Qualidade, agilidade e profissionalismo em cada serviço</p>
-        </div>
-    </header>
 
-    <main>
+  <header class="hero">
+    <div class="container text-center text-white py-5">
+        <h1 class="display-4">Serviços e Loja de Informática</h1>
+        <p class="lead">Qualidade, agilidade e profissionalismo em cada serviço</p>
+    </div>
+</header>
+
+
+    <main class="container mt-5">
         <!-- Seção de Categorias -->
-        <section class="categories">
-            <h2 class="section-title">Categorias de Serviços</h2>
-            <div class="category-grid">
-                <div class="category" data-category="atendimento-avulso">
-                    <img src="https://i.postimg.cc/wvrdRrkB/mini-controle-de-internet.jpg" alt="Atendimento Avulso">
-                    <h3>Atendimento Avulso</h3>
-                </div>
-                <div class="category" data-category="formatacao">
-                    <img src="https://i.postimg.cc/R0RShG83/mini-manutencao-hardware.jpg" alt="Formatação">
-                    <h3>Formatação</h3>
-                </div>
-                <div class="category" data-category="redes">
-                    <img src="https://i.postimg.cc/Dw1yk7PP/mini-manutencao-de-rede.jpg" alt="Redes">
-                    <h3>Redes</h3>
-                </div>
-                <div class="category" data-category="suporte">
-                    <img src="https://i.postimg.cc/WbXwmPkS/mini-suporte-em-informatica.jpg" alt="Suporte Técnico">
-                    <h3>Suporte Técnico</h3>
-                </div>
-                <div class="category" data-category="consultoria">
-                    <img src="https://i.postimg.cc/L40sjCsL/mini-consultoria-em-informatica.jpg" alt="Consultoria">
-                    <h3>Consultoria</h3>
-                </div>
-                <div class="category" data-category="backup">
-                    <img src="https://i.postimg.cc/Zqgf8zXX/mini-backup-online.jpg" alt="Backup">
-                    <h3>Backup</h3>
+        <!-- Seção de Categorias -->
+<section class="categories mb-5">
+    <h2 class="section-title text-center text-primary mb-4">Categorias de Serviços</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+            <div class="category card text-center" data-category="atendimento-avulso">
+                <img src="https://i.postimg.cc/wvrdRrkB/mini-controle-de-internet.jpg" class="card-img-top" alt="Atendimento Avulso">
+                <div class="card-body">
+                    <p>Atendimento Avulso</p>
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="col">
+            <div class="category card text-center" data-category="formatacao">
+                <img src="https://i.postimg.cc/R0RShG83/mini-manutencao-hardware.jpg" class="card-img-top" alt="Formatação">
+                <div class="card-body">
+                    <p>Formatação</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="category card text-center" data-category="redes">
+                <img src="https://i.postimg.cc/Dw1yk7PP/mini-manutencao-de-rede.jpg" class="card-img-top" alt="Redes">
+                <div class="card-body">
+                    <p>Redes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="category card text-center" data-category="suporte">
+                <img src="https://i.postimg.cc/WbXwmPkS/mini-suporte-em-informatica.jpg" class="card-img-top" alt="Suporte Técnico">
+                <div class="card-body">
+                    <p>Suporte Técnico</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="category card text-center" data-category="consultoria">
+                <img src="https://i.postimg.cc/L40sjCsL/mini-consultoria-em-informatica.jpg" class="card-img-top" alt="Consultoria">
+                <div class="card-body">
+                    <p>Consultoria</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="category card text-center" data-category="backup">
+                <img src="https://i.postimg.cc/Zqgf8zXX/mini-backup-online.jpg" class="card-img-top" alt="Backup">
+                <div class="card-body">
+                    <p>Backup</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
         <!-- Seção de Serviços -->
         <section id="services">
-            <h2 id="service-title">Selecione uma Categoria</h2>
-            <p id="service-description">Clique em uma categoria para ver os serviços disponíveis.</p>
-            <ul id="service-list"></ul>
-
-            <!-- Carrinho de Compras -->
-           <div id="cart">
-    <h3>Carrinho</h3>
-    <ul id="cart-items">
+            <h2 id="service-title" class="text-center text-primary">Selecione uma Categoria</h2>
+            <p id="service-description" class="text-center">Clique em uma categoria para ver os serviços disponíveis.</p>
+            <ul id="service-list" class="list-group"></ul>
+<button id="cart-button" class="btn btn-primary position-fixed bottom-0 end-0 m-3">
+    Ver Carrinho
+</button>
+<!-- Carrinho de Compras -->
+<div id="cart" class="card shadow position-fixed top-0 end-0 m-3 p-3" style="width: 350px; max-height: 600px; overflow-y: auto; display: none;">
+    <h3 class="card-title">Carrinho</h3>
+    <button id="close-cart" class="btn btn-danger" style="position: absolute; top: 10px; right: 10px;">Fechar</button>
+    <ul id="cart-items" class="list-group mb-3">
         <!-- Itens do carrinho aparecerão aqui -->
     </ul>
     <p><strong>Total: R$ <span id="cart-total">0.00</span></strong></p>
-    <a id="whatsapp-button" href="#" target="_blank" style="display: none;" class="send-whatsapp">
+    <a id="whatsapp-button" href="#" target="_blank" class="btn btn-success w-100" style="display: none;">
+        Enviar pelo WhatsApp
+    </a>
+</div>
+
+            <!-- Carrinho de Compras -->
+<!-- Botão para abrir o carrinho (fixo) -->
+<button id="open-cart" class="btn btn-primary position-fixed bottom-0 end-0 m-3">Abrir</button>
+
+<!-- FontAwesome para os ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Carrinho de Compras -->
+<div id="cart" class="card shadow position-fixed top-0 end-0 m-3 p-3" style="width: 350px; max-height: 600px; overflow-y: auto; display: none;">
+    <button id="close-cart" class="btn btn-danger position-absolute top-0 end-0 m-2">×</button> <!-- Botão de Fechar -->
+    <h3 class="card-title">Carrinho</h3>
+    <ul id="cart-items" class="list-group mb-3">
+        <!-- Itens do carrinho aparecerão aqui -->
+    </ul>
+    <p><strong>Total: R$ <span id="cart-total">0.00</span></strong></p>
+    <a id="whatsapp-button" href="#" target="_blank" class="btn btn-success w-100" style="display: none;">
         Enviar pelo WhatsApp
     </a>
 </div>
@@ -68,10 +129,101 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="text-center py-3">
         <p>&copy; 2024 - Serviços de Informática - Gunnar Oliveira. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Link para o Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+	
+	<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: {
+                value: 80, // Número de partículas
+                density: {
+                    enable: true,
+                    value_area: 800 // Área de densidade das partículas
+                }
+            },
+            color: {
+                value: "#ff7e5f" // Cor das partículas (escolha a cor que você preferir)
+            },
+            shape: {
+                type: "circle", // Forma das partículas (pode ser "circle", "edge", "triangle", etc.)
+                stroke: {
+                    width: 0,
+                    color: "#000000"
+                }
+            },
+            opacity: {
+                value: 0.5, // Opacidade das partículas
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 3, // Tamanho das partículas
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 40,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: true, // Conectar as partículas com linhas
+                distance: 150, // Distância entre as partículas conectadas
+                color: "#ff7e5f", // Cor das linhas
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true, // Movimentar as partículas
+                speed: 6, // Velocidade das partículas
+                direction: "none", // Direção do movimento
+                random: false,
+                straight: false,
+                out_mode: "out", // Como as partículas se comportam quando saem da tela
+                bounce: false,
+                attract: {
+                    enable: false, // Desabilita a atração de partículas
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: "window",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "repulse" // Efeito ao passar o mouse sobre as partículas
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push" // Efeito ao clicar nas partículas
+                }
+            },
+            modes: {
+                repulse: {
+                    distance: 200, // Distância de repulsão
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4 // Número de partículas a serem adicionadas ao clicar
+                }
+            }
+        },
+        retina_detect: true // Ajusta a resolução para telas de alta densidade de pixels
+    });
+</script>
+
 </body>
 </html>
