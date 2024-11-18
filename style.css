@@ -1,4 +1,30 @@
-/* Reseta o estilo */
+/* Adicionando o reset padrão do Bootstrap */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px; /* Evita que o carrinho sobreponha o conteúdo */
+}
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca as partículas atrás de outros conteúdos */
+}
+
+/* Reset e estilos gerais */
 * {
     margin: 0;
     padding: 0;
@@ -8,22 +34,42 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+}
+body {
+    background: url('https://i.postimg.cc/zXPz2q4B/Banner-para-site-black-friday-da-loja-moderno-vermelho-preto.png') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
     color: #333;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    padding-bottom: 80px;
+    position: relative;
 }
 
-/* Cabeçalho */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Cor escura para melhorar a visibilidade do texto */
+    z-index: -1;
+}
+
+/* Cabeçalho com imagem de fundo */
 header .hero {
-    background: url('https://i.postimg.cc/zXPz2q4B/Banner-para-site-black-friday-da-loja-moderno-vermelho-preto.png') no-repeat center center/cover;
+    background: url('https://i.postimg.cc/zXPz2q4B/Banner-para-site-black-friday-da-loja-moderno-vermelho-preto.png') no-repeat center center/cover; /* Substitua com a URL da sua imagem */
     text-align: center;
     color: white;
     padding: 60px 20px;
+    position: relative;
+    height: 400px; /* Define a altura do cabeçalho */
 }
 
+/* Ajustes para o título e descrição dentro do cabeçalho */
 header .hero h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
@@ -31,210 +77,135 @@ header .hero p {
     font-size: 1.2rem;
 }
 
-/* Seção Principal */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+/* Estilo do rodapé */
+footer {
+    text-align: center;
     padding: 20px;
-}
-/* Estilo para as categorias */
-.category {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    width: 200px;
+    background-color: #f1f1f1;
 }
 
-.category:hover {
-    background-color: #007bff;
-    color: #fff;
+
+
+
+/* Ajuste responsivo para o tamanho do texto e altura do cabeçalho */
+@media (max-width: 768px) {
+    header .hero {
+        height: 300px; /* Reduz a altura do cabeçalho em telas pequenas */
+    }
+    header .hero h1 {
+        font-size: 2rem;
+    }
+    header .hero p {
+        font-size: 1rem;
+    }
 }
 
-/* Alinhar as categorias de forma centralizada */
-.categories-container {
-    text-align: center;
-    margin-bottom: 20px;
+
+header .hero p {
+    font-size: 1.2rem;
 }
 
-/* Estilo para a lista de serviços */
-#service-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-#service-list li {
-    display: flex;
-    justify-content: space-between;
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-#service-list button {
-    background-color: #28a745;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#service-list button:hover {
-    background-color: #218838;
-}
-
-/* Carrinho mais largo */
-#cart {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #ffffff;
-    color: #333333;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 500px; /* Ampliado para 500px */
-    max-height: 700px; /* Ajuste de altura máxima */
-    overflow-y: auto; /* Scroll se necessário */
-    z-index: 1000;
-    font-size: 0.9rem;
-}
-
-/* Ajuste dos itens no carrinho */
-#cart-items li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
-    word-wrap: break-word; /* Permite quebra de texto */
-}
-
-/* Botão Remover ajustado */
-#cart-items .remove-from-cart {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 6px 20px; /* Botões ajustados */
-    cursor: pointer;
-    font-size: 0.85rem;
-    margin-left: 15px;
-    transition: background-color 0.3s ease;
-}
-
-#cart-items .remove-from-cart:hover {
-    background-color: #ff1a1a;
-}
-
-#cart-items .remove-from-cart:hover {
-    background-color: #ff1a1a;
-}
-
-/* Botão WhatsApp */
-#whatsapp-button {
-    margin-top: 20px;
-    background-color: #25d366;
-    color: white;
-    text-align: center;
-    padding: 12px 0;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    display: block;
-    transition: background-color 0.3s ease;
-}
-
-#whatsapp-button:hover {
-    background-color: #1da851;
-}
-
-/* Categorias */
+/* Seção de Categorias */
 .categories {
-    flex: 1 1 60%;  /* O restante do espaço será ocupado pelas categorias */
-    padding: 20px;
-    background-color: #fff;
+    padding: 30px 0;
+    background-color: #ffffff;
 }
 
+/* Título da seção de categorias */
 .section-title {
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 20px;
-    color: #007BFF;
+    margin-bottom: 30px;
+    color: #007bff;
 }
 
+/* Categorias no grid */
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
-.category {
-    background: #007BFF;
-    border-radius: 10px;
-    padding: 20px;
+/* Seção de Categorias */
+.categories {
+    padding: 30px 0;
+    background-color: #ffffff;
+}
+
+/* Título da seção de categorias */
+.section-title {
     text-align: center;
-    color: white;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+/* Categorias no grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 15px;
+}
+
+/* Cada categoria */
+.category {
+    background-color: #007bff;
+    color: white; /* Cor do texto da categoria */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
     transition: transform 0.3s ease;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
+/* Estilo para o título das categorias, se necessário */
+.category .card-body p {
+    font-size: 1.2rem;
+    color: white; /* Aqui a cor do texto é definida como branco */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Hover nas categorias */
 .category:hover {
     transform: translateY(-5px);
+    background-color: #0056b3;
 }
-/* tamanho da imagem  */
+
 .category img {
-    width: 100px;
-    margin-bottom: 30px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
-.category h3 {
-    font-size: 1.2rem;
-    margin-top: 2px;
+/* Responsividade */
+@media (max-width: 768px) {
+    .category img {
+        width: 100%;  /* A imagem vai ocupar 100% da largura da coluna */
+    }
+
+    .category .card-body p {
+        font-size: 1rem; /* Ajuste no tamanho da fonte para telas menores */
+    }
 }
 
-/* Descrição abaixo de cada categoria */
-.category-description {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #f1f1f1;
-}
-/* Centraliza a sessão de serviços */
-#service-info {
-    padding: 20px;
-    background-color: #fff;
-    margin-top: 20px;
-    text-align: center; /* Centraliza o texto */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo dentro do container */
-    justify-content: center;
-}
 
+
+/* Seção de Serviços */
 #service-title {
     font-size: 2rem;
-    color: #007BFF;
+    color: #007bff;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 #service-description {
     font-size: 1rem;
-    color: #333;
-    margin-bottom: 20px;
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 #service-list {
@@ -242,227 +213,180 @@ main {
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza a lista de serviços */
-    gap: 10px;
+    align-items: center;
+    gap: 15px;
 }
 
-.service-item {
+#service-list li {
     background-color: #fff;
     border-radius: 10px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
     text-align: center;
     transition: transform 0.3s ease;
-    cursor: pointer;
-    width: 80%;  /* Largura ajustada para centralizar */
-    max-width: 600px;  /* Limita a largura máxima */
 }
 
-.service-item:hover {
+#service-list li:hover {
     transform: translateY(-5px);
 }
 
-.service-item img {
-    max-width: 100%;
-    margin-bottom: 10px;
-}
-
-.service-item h4 {
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-.service-item p {
-    font-size: 1rem;
-    color: #555;
-}
-
 .add-to-cart {
     background-color: #28a745;
     color: white;
     border: none;
     padding: 10px 20px;
-    margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 1rem;
 }
 
 .add-to-cart:hover {
     background-color: #218838;
 }
 
-/* Seção de Seleção da Categoria e Carrinho */
-#service-info {
-    padding: 20px;
-    background-color: #fff;
-    margin-top: 20px;
-}
+/* Estilos para o Carrinho de Compras */
 
-#service-title {
-    font-size: 2rem;
-    text-align: center;
-    color: #007BFF;
-}
-
-#service-description {
-    font-size: 1rem;
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-#service-list {
-    list-style: none;
-}
-
+/* Carrinho fixo */
 #cart {
-    position: sticky; /* Fixa o carrinho à medida que o usuário rola a página */
-    top: 20px;
-    background-color: #ffffff;
-    color: #333333;
-    padding: 20px;
+    position: fixed;
+    bottom: 20px;  /* Distância do fundo da tela */
+    right: 20px;   /* Distância da borda direita da tela */
+    background-color: #fff;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     width: 300px;
-    max-height: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;  /* Garante que o carrinho fique acima de outros elementos */
+    transition: bottom 0.3s ease-in-out;
+}
+
+/* Ajustes para os itens do carrinho */
+#cart-items {
+    max-height: 200px;
     overflow-y: auto;
-    z-index: 1000;
-}
-
-#cart-items li {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 10px;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 5px;
 }
 
-#whatsapp-button {
-    background-color: #25d366;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-#whatsapp-button:hover {
-    background-color: #128c7e;
-}
-
-/* Botão "Adicionar ao Carrinho" ajustado para tamanho menor */
-.add-to-cart {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 8px 16px; /* Reduziu o padding para deixar o botão menor */
-    margin-top: 10px; /* Menor margem superior */
-    margin-bottom: 15px; /* Menor margem inferior */
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-block; /* Deixa o botão no tamanho ajustado */
-    width: auto; /* Deixa o botão com o tamanho necessário */
-    text-align: center; /* Centraliza o texto */
-    font-size: 0.9rem; /* Tamanho de fonte ajustado para ficar mais discreto */
-}
-
-/* Hover do botão "Adicionar ao Carrinho" */
-.add-to-cart:hover {
-    background-color: #218838;
-}
-
-/* Ajustes para os itens de serviço (como os produtos) */
-#service-list .service-item {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px; /* Menos padding para tornar o item mais compacto */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 80%;  /* Largura ajustada para centralizar */
-    max-width: 600px;
-    transition: transform 0.3s ease;
-    margin-bottom: 15px; /* Menor espaçamento entre os itens */
-}
-
-/* Centralizar os botões de "Adicionar ao Carrinho" dentro dos itens */
-.service-item .add-to-cart {
-    width: auto; /* Ajusta o tamanho para o conteúdo */
-    margin: 0 auto; /* Centraliza o botão dentro do item */
-}
-
-/* Ajuste para a seção de serviços */
-#service-info {
-    padding: 20px;
-    background-color: #fff;
-    margin-top: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Container para os botões de adicionar ao carrinho */
-.add-to-cart-container {
-    display: flex;
-    justify-content: center; /* Centraliza o botão */
-    align-items: center;
+/* Estilo do botão dentro do carrinho */
+#cart button {
     width: 100%;
-    margin-top: 15px;
-}
-
-/* Botões de remover */
-.remove-from-cart {
-    background-color: #dc3545;
+    background-color: #ff4c4c;  /* Cor vermelha para o botão */
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1.1rem;
     transition: background-color 0.3s ease;
-    font-size: 0.9rem;
 }
 
-.remove-from-cart:hover {
-    background-color: #c82333;
+#cart button:hover {
+    background-color: #ff1f1f;
+}/* Botão fixo para abrir o carrinho */
+/* Estilo para o botão de abrir o carrinho */
+#open-cart {
+    font-size: 1.5rem; /* Tamanho da fonte para o ícone */
+    background-color: #28a745; /* Cor de fundo verde */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 70px; /* Aumentando o tamanho do botão */
+    height: 70px;
+    position: fixed; /* Fixa o botão na tela */
+    top: 20px; /* Distância do topo da tela */
+    right: 20px; /* Distância da borda direita */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza o conteúdo dentro do botão */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de hover */
+    z-index: 1000; /* Garante que o botão fique sobre outros elementos */
 }
 
-/* Estilo para o carrinho */
-#cart {
-    max-width: 100%; /* Para evitar que ultrapasse o tamanho da tela */
-    width: 500px; /* Largura fixa para desktops */
-    margin: 20px auto; /* Centralizado */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#open-cart:hover {
+    background-color: #218838; /* Cor de fundo mais escura ao passar o mouse */
+    transform: scale(1.1); /* Efeito de aumento no tamanho */
 }
 
-/* Ajuste para dispositivos menores */
+/* Adicionando ícone de carrinho (Font Awesome) dentro do botão */
+#open-cart::before {
+    content: '\f07a'; /* Código do ícone de carrinho do FontAwesome */
+    font-family: 'Font Awesome 5 Free'; /* Fonte do FontAwesome */
+    font-weight: 900; /* Estilo bold para o ícone */
+    font-size: 2rem; /* Tamanho do ícone */
+    color: white;
+}
+
+/* Importação do FontAwesome no HTML (no <head>) */
+
+
+/* Adicionando ícone de carrinho (Font Awesome) dentro do botão */
+#open-cart::before {
+    content: '\f07a'; /* Código do ícone de carrinho do FontAwesome */
+    font-family: 'Font Awesome 5 Free'; /* Fonte do FontAwesome */
+    font-weight: 900; /* Estilo bold para o ícone */
+    font-size: 2rem; /* Tamanho do ícone */
+    color: white;
+}
+
+/* Importação do FontAwesome no HTML (no <head>) */
+
+
+/* Botão de fechar dentro do carrinho */
+#close-cart {
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    color: #ff4c4c;
+    cursor: pointer;
+    padding: 0;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#close-cart:hover {
+    color: #ff1f1f;
+}
+
+
+/* Estilo para o botão de remover do carrinho */
+#cart-items .remove-item {
+    color: red;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
     #cart {
-        width: 90%; /* Ocupa quase toda a largura da tela */
+        width: 100%;  /* Carrinho ocupa a largura total na parte inferior */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
     }
 }
-@media (max-width: 768px) {
-    .add-to-cart {
-        padding: 6px 12px; /* Tamanho ainda menor para dispositivos móveis */
-        font-size: 0.85rem; /* Fonte um pouco menor */
-    }
-}
+
+/* Rodapé fixo */
 footer {
-  position: fixed; /* Fixa o rodapé no fundo da página */
-  bottom: 0; /* Coloca o rodapé na parte inferior */
-  left: 50%; /* Centraliza o texto horizontalmente */
-  transform: translateX(-50%); /* Ajusta o texto para que ele fique no centro exato */
-  text-align: center; /* Alinha o texto no centro */
-  width: 100%; /* Garante que o rodapé ocupe toda a largura da página */
-  padding: 10px 0; /* Adiciona algum espaço ao redor do texto */
-  background-color: #f1f1f1; /* Cor de fundo do rodapé (opcional) */
-  font-size: 14px; /* Tamanho da fonte (opcional) */
-  color: #333; /* Cor do texto (opcional) */
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+    font-size: 14px;
+    color: #333;
 }
