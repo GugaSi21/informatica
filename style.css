@@ -104,6 +104,37 @@ footer {
 header .hero p {
     font-size: 1.2rem;
 }
+/* Seção de Categorias */
+.categories {
+    padding: 30px 0;
+    background-color: #ffffff;
+    border-radius: 15px; /* Arredonda as bordas da seção */
+}
+
+/* Cada categoria */
+.category {
+    background-color: #007bff;
+    color: white; /* Cor do texto da categoria */
+    padding: 20px;
+    border-radius: 10px; /* Arredonda as bordas das categorias */
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Estilo para o título das categorias */
+.category .card-body p {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Hover nas categorias */
+.category:hover {
+    transform: translateY(-5px);
+    background-color: #0056b3;
+}
 
 /* Seção de Categorias */
 .categories {
@@ -203,7 +234,7 @@ header .hero p {
 
 #service-description {
     font-size: 1rem;
-    color: #555;
+    color: white;
     margin-bottom: 30px;
     text-align: center;
 }
