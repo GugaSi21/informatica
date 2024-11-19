@@ -58,7 +58,7 @@ function displayServices(category) {
         serviceItem.innerHTML = `
             ${service.name} - R$ ${service.price.toFixed(2)}
             <button class="add-to-cart" data-name="${service.name}" data-price="${service.price}">
-                Adicionar ao Carrinho
+                + 
             </button>
         `;
         serviceList.appendChild(serviceItem);
